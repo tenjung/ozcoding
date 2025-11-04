@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleLogo from "./GoogleLogo";
 import SpButton from "./SpButton";
+import { SearchIcon, MicIcon, PicIcon } from "./Icons";
 
 function App() {
   return (
@@ -29,15 +30,15 @@ function App() {
         <div className="mt-8 w-full max-w-xl">
           {/* 검색창 */}
           <div className="flex w-full items-center bg-white shadow-md rounded-full px-4 py-2 border border-gray-200">
-            <span className=" text-gray-400 mr-3">search</span>
+            <SearchIcon />
             {/* 검색입력 */}
             <input className="outline-none bg-transparent text-lg" type="text" placeholder="구글UI실습" />
             <div className="flex gap-3 items-center ml-auto">
               {/* 검색창 우측 아이콘 */}
-              <span className=" text-gray-500 cursor-pointer">key</span>
-              <span className=" text-gray-500 cursor-pointer">mic</span>
-              <span className=" text-gray-500 cursor-pointer">pic</span>
-              <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm ml-2">AI 모드</span>
+              <MicIcon className="cursor-pointer" />
+              <PicIcon className="cursor-pointer" />
+
+              <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm ">AI 모드</span>
             </div>
           </div>
         </div>
