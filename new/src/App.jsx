@@ -1,71 +1,88 @@
-import React from "react";
-import GoogleLogo from "./GoogleLogo";
-import SpButton from "./SpButton";
-import { SearchIcon, MicIcon, PicIcon } from "./Icons";
+// // App.jsx
+// import React from "react";
+
+// function App() {
+//   // 이미지 URL 배열
+//   const images = [
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//     "https://placehold.co/400",
+//   ];
+
+//   return (
+//     <div className="flex flex-col items-center min-h-screen bg-gray-50 p-6">
+//       <h1 className="text-2xl font-bold mb-2">Large Family House for Sale</h1>
+//       <p className="text-gray-600 mb-6">California City, CA, USA</p>
+
+//       <div className="flex gap-4 max-w-6xl w-full flex-wrap justify-center">
+//         {images.map((src, index) => (
+//           <img
+//             key={index}
+//             src={src}
+//             alt={`image ${index + 1}`}
+//             className={`${index % 2 === 0 ? "rounded-xl" : "rounded-full"}
+//             w-50 h-50 hover:shadow-2xl hover:ring-1 hover:ring-gray-400 cursor-pointer`}
+//           />
+//         ))}
+//       </div>
+
+//       <button className="mt-6 bg-gray-700 text-white px-4 py-2 rounded-lg shadow hover:bg-gray-900">Show all Images</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import React, { useState } from "react";
 
 function App() {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <header className="p-5 flex justify-between">
-        <div className="flex gap-5">
-          {/* 좌상단 */}
-          <a href="">Google 정보</a>
-          <a href="">스토어</a>
-        </div>
-        <div className="flex gap-5 items-center">
-          {/* 우상단 */}
-          <div className="flex gap-5">
-            <a href="">Gmail</a>
-            <a href="">이미지</a>
-          </div>
-          <div className="w-8 h-8 bg-zinc-600">{/* 아이콘 */}</div>
-          <div className="w-8 h-8 bg-amber-500 rounded-full">{/* 사용자계정 */}</div>
-        </div>
-      </header>
-      <main className="grow flex flex-col items-center justify-center">
-        <div>
-          {/* 구글로고 */}
-          <GoogleLogo />
-        </div>
-        <div className="mt-8 w-full max-w-xl">
-          {/* 검색창 */}
-          <div className="flex w-full items-center bg-white shadow-md rounded-full px-4 py-2 border border-gray-200">
-            <SearchIcon />
-            {/* 검색입력 */}
-            <input className="outline-none bg-transparent text-lg" type="text" placeholder="구글UI실습" />
-            <div className="flex gap-3 items-center ml-auto">
-              {/* 검색창 우측 아이콘 */}
-              <MicIcon className="cursor-pointer" />
-              <PicIcon className="cursor-pointer" />
+  const albums = [
+    {
+      name: "House",
+      images: ["https://placehold.co/400x400?text=House1", "https://placehold.co/400x400?text=House2", "https://placehold.co/400x400?text=House3", "https://placehold.co/400x400?text=House4"],
+    },
+    {
+      name: "Living room",
+      images: ["https://placehold.co/400x400?text=Living1", "https://placehold.co/400x400?text=Living2", "https://placehold.co/400x400?text=Living3", "https://placehold.co/400x400?text=Living4"],
+    },
+    {
+      name: "Bathroom",
+      images: ["https://placehold.co/400x400?text=Bath1", "https://placehold.co/400x400?text=Bath2", "https://placehold.co/400x400?text=Bath3", "https://placehold.co/400x400?text=Bath4"],
+    },
+  ];
 
-              <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm ">AI 모드</span>
-            </div>
-          </div>
-        </div>
-        <div className="mt-2 flex gap-5 p-4">
-          {/* 링크버튼 */}
-          <SpButton>Google 검색</SpButton>
-          <SpButton>I'm Feeling Lucky</SpButton>
-        </div>
-      </main>
-      <footer className="bg-gray-100 text-sm">
-        <div className="p-4">대한민국</div>
-        <div className="border-t border-gray-300"></div>
-        <div className="flex justify-between p-4">
-          <div className="gap-2 flex">
-            {/* 좌하단 */}
-            <a href="">광고</a>
-            <a href="">비즈니스</a>
-            <a href="">검색의 원리</a>
-          </div>
-          <div className="flex gap-4">
-            {/* 우하단 */}
-            <a href="">개인정보처리방침</a>
-            <a href="">약관</a>
-            <a href="">설정</a>
-          </div>
-        </div>
-      </footer>
+  const [selectedAlbum, setSelectedAlbum] = useState(0);
+
+  return (
+    <div className="flex flex-col items-center min-h-screen bg-gray-50 p-6">
+      <h1 className="text-2xl font-bold mb-4">앨범 목록</h1>
+      {/* 앨범 메뉴: 클릭하면 setSelectedAlbum으로 상태 변경 */}
+      <div className="flex gap-2 mb-6">
+        {albums.map((album, idx) => (
+          <button key={album.name} onClick={() => setSelectedAlbum(idx)} className={`px-4 py-2 rounded-lg ${selectedAlbum === idx ? "bg-indigo-600 text-white" : "bg-white text-indigo-600 border"}`}>
+            {album.name}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex gap-4 max-w-5xl w-full flex-wrap justify-center">
+        {/* 선택된 앨범의 이미지만 보여줌 */}
+        {albums[selectedAlbum].images.map((src, index) => (
+          <img
+            key={index}
+            src={src}
+            alt={`${albums[selectedAlbum].name} image ${index + 1}`}
+            className={`${index % 2 === 0 ? "rounded-xl" : "rounded-full"} w-50 h-50 transition duration-300 hover:scale-110 hover:shadow-2xl cursor-pointer`}
+          />
+        ))}
+      </div>
     </div>
   );
 }
