@@ -135,7 +135,7 @@ function App() {
                   {/* 조회수 */}
                   <div className="flex items-center gap-1">
                     <Eye size={16} />
-                    <span>{item.views.toLocaleString()}</span>
+                    <span>{item.views}</span>
                   </div>
                   {/* 좋아요 */}
                   <div className="flex items-center gap-1">
