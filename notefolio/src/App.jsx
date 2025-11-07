@@ -122,14 +122,15 @@ function App() {
               {/* 하단 정보 영역 */}
               <div className="mt-3 flex items-center justify-between">
                 {/* 아바타/작성자 정보 */}
-                <div className="flex items-center gap-2">
-                  <Avatar className="w-8 h-8">
-                    <AvatarImage src={item.avatar} alt={item.author} />
-                    <AvatarFallback>{item.fallback}</AvatarFallback>
-                  </Avatar>
-                  <p className="text-sm font-medium">{item.author}</p>
-                </div>
-
+                <a href="">
+                  <div className="flex items-center gap-2">
+                    <Avatar className="w-8 h-8">
+                      <AvatarImage src={item.avatar} alt={item.author} />
+                      <AvatarFallback>{item.fallback}</AvatarFallback>
+                    </Avatar>
+                    <p className="text-sm font-medium">{item.author}</p>
+                  </div>
+                </a>
                 {/* 조회수/좋아요 */}
                 <div className="flex items-center gap-4 text-sm text-gray-600">
                   {/* 조회수 */}
