@@ -1,16 +1,30 @@
-# React + Vite
+## Flex (한 방향 배치, 1차원 레이아웃)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+사용 예시: 텍스트 버튼들을 가로로 중앙 정렬  
+클래스: `.flex .justify-center .items-center`
 
-Currently, two official plugins are available:
+- `flex`: flexbox 활성화
+- `justify-center`: 주 축(가로) 가운데 정렬
+- `items-center`: 교차 축(세로) 가운데 정렬
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Grid (행과 열, 2차원 레이아웃)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+사용 예시: 3행 3열 박스 균일 간격 배치  
+클래스: `.grid .grid-cols-3 .grid-rows-3 .gap-4`
 
-## Expanding the ESLint configuration
+- `grid`: grid 레이아웃 활성화
+- `grid-cols-3`: 3열 설정
+- `grid-rows-3`: 3행 설정
+- `gap-4`: 행과 열 사이 간격
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 메인 헤더 Sticky 및 Sticky Menu 적용
+
+- 처음엔 문서 흐름에 따라 움직임
+- 스크롤 시 지정 위치(top 등)에 닿으면 고정됨
+- 부모 영역 내에서만 고정, 벗어나면 다시 움직임
+
+---
