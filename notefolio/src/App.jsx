@@ -25,7 +25,7 @@ function App() {
     const API_KEY = "dAOntppwDT4Q9nTMDAO-bSN6-vAh7iIFC0ME3bEnxLU";
     const API_URL = `https://api.unsplash.com/search/photos/?client_id=${API_KEY}`;
 
-    const res = await axios.get(`${API_URL}&page=1&query=korea`);
+    const res = await axios.get(`${API_URL}&page=1&query=electronics`);
     console.log("res: ", res);
 
     // const 실제로필요한데이터전체 = res.data;
