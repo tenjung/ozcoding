@@ -5,10 +5,10 @@ import { mentors } from "../../constants";
 
 function AppPortfolio() {
   return (
-    <section className="relative w-full flex flex-col gap-6 py-12 px-20 mt-12 bg-black">
+    <section className="relative w-full flex flex-col gap-6 py-12 px-6 lg:px-20 mt-12 bg-black whitespace-nowrap">
       <h3 className="scroll-m-20 text-2xl text-white font-semibold tracking-tight">포트폴리오 피드백부터 커리어 상담까지!</h3>
       {/* 좌우 플로팅 버튼 */}
-      <div className="absolute top-10 right-20 flex gap-4 bg-black  w-fit">
+      <div className="absolute top-10 right-20 hidden sm:flex gap-4 bg-black  w-fit">
         <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow">
           <ChevronLeft size={22} className="text-black" />
         </div>
@@ -16,7 +16,7 @@ function AppPortfolio() {
           <ChevronRight size={22} className="text-black" />
         </div>
       </div>
-      <div className="grid grid-cols-6 gap-6">
+      <div className="flex gap-6 overflow-x-auto pb-4">
         {/* 멘토 카드 */}
         {mentors.map((mentor) => {
           return (
@@ -37,7 +37,7 @@ function AppPortfolio() {
                   </Badge>
                 )}
               </div>
-              {/* 멘토 설명 */}
+              {/* 멘토 정보 */}
               <div className="flex flex-col gap-2 p-4">
                 <p className="text-lg font-semibold">{mentor.name} 멘토</p>
                 <Separator />

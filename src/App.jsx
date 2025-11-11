@@ -1,6 +1,6 @@
 //App.jsx
 
-import { AppHeader, AppStickyMenu, AppPortfolio, AppFooter, ImageDialog } from "./components/common";
+import { AppHeader, AppStickyMenu, AppPortfolio, AppFooter, AppImageDialog } from "./components/common";
 import { Card, Separator, Skeleton, Avatar, AvatarImage, AvatarFallback, Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, Button } from "./components/ui";
 import { SkeletonImageCard } from "./components/skeleton";
 
@@ -46,7 +46,7 @@ function App() {
         <p className="text-white">레퍼런스로 시작하는 스몰 브랜드 브랜딩 워크숍</p>
       </div>
       {/* 자회사 링크 */}
-      <div className="w-full h-[34px] flex items-center gap-3 px-8">
+      <div className="w-full h-[34px] hidden md:flex items-center gap-3 px-8">
         <svg className="w-5 h-5" viewBox="0 0 19 12" xmlns="http://www.w3.org/2000/svg">
           <path d="M18.8465 5.95162L13.1188 0.0594973C13.0983 0.0395263 13.0711 0.0283946 13.0429 0.0283946C13.0147 0.0283946 12.9875 0.0395263 12.967 0.0594973L9.74661 3.37234C9.6636 3.44441 9.55849 3.48394 9.44987 3.48394C9.34125 3.48394 9.23614 3.44441 9.15314 3.37234L5.90974 0.0311027C5.88924 0.0111316 5.86207 0 5.83383 0C5.80559 0 5.77843 0.0111316 5.75793 0.0311027L0.0302347 5.92323C0.010821 5.94432 0 5.97226 0 6.00131C0 6.03036 0.010821 6.05831 0.0302347 6.07941L5.75793 11.9668C5.76696 11.9777 5.77828 11.9863 5.79103 11.9921C5.80378 11.9978 5.81763 12.0005 5.83154 11.9999C5.84609 12.0002 5.86054 11.9975 5.874 11.9918C5.88746 11.9861 5.89962 11.9776 5.90974 11.9668L9.15774 8.62556C9.23566 8.55601 9.3352 8.51739 9.43837 8.51671C9.54921 8.51932 9.65539 8.56302 9.7374 8.63976L12.9578 11.9526C12.9668 11.9635 12.9781 11.9721 12.9909 11.9779C13.0036 11.9836 13.0175 11.9863 13.0314 11.9857C13.046 11.986 13.0604 11.9833 13.0739 11.9776C13.0873 11.9719 13.0995 11.9634 13.1096 11.9526L18.8373 6.06521C18.8484 6.04879 18.8551 6.02964 18.8568 6.00969C18.8584 5.98974 18.8548 5.96971 18.8465 5.95162Z"></path>
           <defs></defs>
@@ -69,8 +69,11 @@ function App() {
         {/* 메인 카테고리 메뉴 AppStickyMenu */}
         <AppStickyMenu />
         {/* 메인컨텐츠 이미지리스트 */}
-        <ImageDialog images={images} />
-
+        <section className="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 mt-6 px-6 xl:px-20">
+          {images.map((image, index) => (
+            <AppImageDialog props={image} />
+          ))}
+        </section>
         {/* 포트폴리오 피드백부터 커리어 상담까지! */}
         <AppPortfolio />
         {/*디자이너 채용 정보는 노트폴리오에서! */}
@@ -101,14 +104,27 @@ function App() {
           </div>
         </section>
         {/* 하단컨텐츠 이미지리스트*/}
-        <ImageDialog images={images} />
+
         {/* <section className="w-full grid grid-cols-6 gap-6 mt-6 px-20">
        
         </section> */}
       </main>
       <div className="h-[114px] flex flex-col items-center gap-6 my-20">
         {/* 회원가입 및 로그인 유도 문구 */}
-        <div className="flex items-center">
+        <div className="flex md:hidden flex-col items-center gap-1">
+          <div className="flex items-center">
+            <a href="" className="underline">
+              회원가입
+            </a>
+            <p className="mx-1">또는</p>
+            <a href="" className="underline">
+              로그인
+            </a>
+            <p>을 통해</p>
+          </div>
+          <p>19만개 이상의 크리에이티브를 발견하고 수집해보세요.</p>
+        </div>
+        <div className="hidden md:flex items-center">
           <a href="" className="underline">
             회원가입
           </a>

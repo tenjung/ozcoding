@@ -20,8 +20,8 @@ function AppStickyMenu() {
 
   return (
     <section className="sticky top-14  bg-white z-10 w-full flex items-center justify-center gap-6">
-      <div className="flex flex-col items-center">
-        <ArrowUpDown size={30} />
+      <div className="hidden md:flex flex-col items-center whitespace-nowrap">
+        <ArrowUpDown size={20} />
         <span>정렬</span>
       </div>
       <Separator orientation="vertical" className="h-10!" />
@@ -30,16 +30,16 @@ function AppStickyMenu() {
           const IconComponent = category.icon;
           return (
             <div key={category.label} className="flex flex-col items-center gap-1 cursor-pointer">
-              <IconComponent size={30} />
+              <IconComponent size={20} />
               <span className="text-sm whitespace-nowrap">{category.label}</span>
             </div>
           );
         })}
       </div>
       <Separator orientation="vertical" className="h-10!" />
-      <div className="flex flex-col items-center">
-        <img src="src\assets\img-gyeonngi-do.png" alt="" />
-        <span className="text-sm text-[#05bcc6]">경기도 AI 콘텐츠</span>
+      <div className="flex flex-col items-center jusify-center whitespace-nowrap w-10 h-10">
+        <img src="src\assets\img-gyeonngi-do.png" alt="" className="w-5 h-auto" />
+        <span className="text-sm text-[#05bcc6]">AI 콘텐츠</span>
       </div>
     </section>
   );
