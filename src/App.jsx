@@ -8,7 +8,7 @@ import { SkeletonImageCard } from "./components/skeleton";
 import { recruitments } from "./constants";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Heart } from "lucide-react";
+import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 
 function addCommas(amount) {
   return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -77,13 +77,47 @@ function App() {
         {/* 포트폴리오 피드백부터 커리어 상담까지! */}
         <AppPortfolio />
         {/*디자이너 채용 정보는 노트폴리오에서! */}
-        <section className="w-full flex flex-col gap-6 py-12 px-20  bg-neutral-100">
-          <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">디자이너 채용 정보는 노트폴리오에서!</h3>
-          <div className="grid grid-cols-6 gap-6">
+        <section className="relative w-full flex flex-col gap-6 py-12 px-20  bg-neutral-100 min-width">
+          <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight whitespace-nowrap">디자이너 채용 정보는 노트폴리오에서!</h3>
+          {/* 좌우 플로팅 버튼 */}
+          <div className="absolute top-10 right-20 hidden sm:flex gap-4 w-fit">
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow">
+              <ChevronLeft size={22} className="text-black" />
+            </div>
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow">
+              <ChevronRight size={22} className="text-black" />
+            </div>
+          </div>
+          {/* PC화면 */}
+          <div className="hidden md:flex gap-x-6 overflow-x-auto whitespace-nowrap">
             {recruitments.map((recruitment) => {
               return (
                 <Card className="w-full h-fit p-0 gap-3 border-none shadow-none bg-transparent">
                   <Skeleton className="w-full h-52 bg-neutral-400 rounded-t-lg rounded-lg" />
+                  <div className="flex gap-1">
+                    {/* 로고 */}
+                    <Avatar className="w-10 h-10">
+                      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <p>{recruitment.imgUrl}</p>
+                    <div>
+                      {/* 타이틀 */}
+                      <p className="text-[15px] font-semibold line-clamp-1">{recruitment.title}</p>
+                      {/* 회사명 */}
+                      <p className="text-sm text-neutral-700">{recruitment.company}</p>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+          </div>
+          {/* 모바일 화면 */}
+          <div className="md:hidden flex flex-col gap-x-6 overflow-x-auto whitespace-nowrap gap-5">
+            {recruitments.map((recruitment) => {
+              return (
+                <Card className="flex flex-col w-full h-fit p-0 gap-3 border-none shadow-none bg-transparent">
+                  {/* <Skeleton className="w-full h-52 bg-neutral-400 rounded-t-lg rounded-lg" /> */}
                   <div className="flex gap-1">
                     {/* 로고 */}
                     <Avatar className="w-10 h-10">
