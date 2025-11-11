@@ -19,7 +19,7 @@ function AppStickyMenu() {
   ];
 
   return (
-    <section className="sticky top-14  bg-white z-10 w-full flex items-center justify-center gap-6">
+    <section className="sticky top-14  bg-white z-10 w-full flex items-center justify-center py-4 gap-6">
       <div className="hidden md:flex flex-col items-center whitespace-nowrap">
         <ArrowUpDown size={20} />
         <span>정렬</span>
